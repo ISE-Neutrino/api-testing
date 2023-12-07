@@ -1,6 +1,0 @@
-com/customers/Application.class
-com/customers/utils/ApiResponse.class
-com/customers/utils/JsonConverter.class
-com/customers/services/CustomersService.class
-com/customers/controllers/CustomersController.class
-com/customers/models/Customer.class
