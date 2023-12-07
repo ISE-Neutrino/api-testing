@@ -1,6 +1,6 @@
 # APIs Testing
 
-This repository demonstrates by example how to make APIs End-to-End(e2e) testing using Http files (Http/Rest Client) and Load testing using K6
+This repository demonstrates by example how to make APIs End-to-End(e2e) testing using Http files and Rest Client.
 
 ## Prerequisites
 
