@@ -19,9 +19,7 @@ This repository demonstrates by example how to make APIs End-to-End(e2e) testing
 Before running the application, make sure you have 
 - Installed the Pre-requisites mentioned above.
 - Created the environment file `.env` under root folder based on the template file [.env.template](.env.template).
-- the environment file [http-client.env.json](e2e-test/http-client.env.json) under `e2e-test`folder is up to date.
-
-> **Note:** IntelliJ IDE> [`.env loader plugin`](https://plugins.jetbrains.com/plugin/7861-envfile) need to be installed.
+- the environment file [http-client.env.json](e2e-test/http-client.env.json) under `e2e-test` folder is up to date.
 
 To build the service source code and run unit-tests, use:
 - `mvn clean install` or `make build`

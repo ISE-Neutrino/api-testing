@@ -1,4 +1,4 @@
-# API endpoints testing using HTTP files and Rest Client
+# APIs testing using HTTP files and Rest Client
 
 ![testing-pyramid](./images/testing-pyramid.png)
 
