@@ -1,0 +1,75 @@
+/*
+* APIs e2e testing using HTTP files and HTTP Client
+* This is a sample test suite to test the APIs using HTTP files and HTTP Client
+* The test suite contains the following tests:
+* 1. List Customers
+* 2. Add Customer
+* 3. Get Customer
+* 4. Update Customer
+* 5. List Customers
+*
+*/
+###
+
+# @title List Customers
+GET {{CUSTOMERS_API_URL}}/
+Authorization: Bearer
+Content-Type: application/json
+
+{}
+
+###
+
+# @title Add Customer
+POST {{CUSTOMERS_API_URL}}/
+Authorization: Bearer
+Content-Type: application/json
+
+{
+    "name": "Test Customer",
+    "email": "email@test.com"
+}
+
+> {%
+
+  // Assert status code
+  client.test('status code 200', () => {
+    client.assert(response.status === 200, "Response status is not 200");
+  });
+
+  // Set customerId as global variable
+  client.global.set("customerId", response.body.result);
+%}
+
+###
+
+# @title Get Customer
+GET {{CUSTOMERS_API_URL}}/{{customerId}}
+Authorization: Bearer
+Content-Type: application/json
+
+{}
+
+###
+
+
+# @title Update Customer
+PATCH {{CUSTOMERS_API_URL}}/{{customerId}}
+Authorization: Bearer
+Content-Type: application/json
+
+{
+    "name": "Test Customer - Updated",
+    "email": "email@test.com"
+}
+
+###
+
+# @title List Customers
+GET {{CUSTOMERS_API_URL}}/
+Authorization: Bearer
+Content-Type: application/json
+
+{}
+
+###
