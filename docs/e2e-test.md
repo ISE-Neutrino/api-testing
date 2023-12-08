@@ -20,15 +20,15 @@ Our selection criteria were:
     - Environment variables
     - Response validation and manipulation
 
-So I would like to share with you the steps that I followed to do the end-to-end testing for the solution API endpoints.
+I would like to walk you through the steps we took to perform end-to-end testing for the API endpoints in the solution.
 
-In this article, I've created a sample mock Customers API endpoints using Spring Boot and I will use it to demonstrate how to do the end-to-end testing using [VS Code](https://code.visualstudio.com/) as an IDE and [Httpyac](https://marketplace.visualstudio.com/items?itemName=anweber.vscode-httpyac) as HTTP client.
+In this article, we have developed sample mock Customer API endpoints using Spring Boot. I employ this setup to illustrate the process of conducting end-to-end testing, leveraging [VS Code](https://code.visualstudio.com/) as the integrated development environment (IDE) and  [Httpyac](https://marketplace.visualstudio.com/items?itemName=anweber.vscode-httpyac) as the HTTP client.
 
 Please find all the code and documentation in the repository [here](https://github.com/ISE-Neutrino/api-testing)
 
 ## E2E(end-to-end) testing
 
-Let me start by defining what is end-to-end testing and why we need to do it.
+Let's start by defining what is end-to-end testing and why we need to do it.
 
 End-to-end testing is a methodology used to test whether the flow of an application is performing as designed from start to finish. The purpose of carrying out end-to-end tests is to identify system dependencies and to ensure that the right information is passed between various system components and systems.
 
@@ -38,7 +38,7 @@ I will focus in this article on testing API endpoints end-to-end, so I will not 
 
 ## HTTP files
 
-It is a file with `.http` extension that allows you to write HTTP requests using format that follows the standards of [RFC 9110 HTTP Semantics](https://www.rfc-editor.org/rfc/rfc9110.html) and The file can be executed from the IDEs like Visual Studio, VS Code, IntelliJ (natively or thought HTTP clients extensions [Rest Client, Httpyac, Intellj HTTP Client]) or from the command line using the ([Httpyac CLI](https://httpyac.github.io/guide/installation_cli.html) - [HTTP Client CLI](https://www.jetbrains.com/help/idea/http-client-in-product-code-editor.html)).
+It is a file with a `.http` extension that allows you to write HTTP requests using a format that follows the standards of [RFC 9110 HTTP Semantics](https://www.rfc-editor.org/rfc/rfc9110.html). The file can be executed from IDEs like Visual Studio, VS Code, IntelliJ (natively or through HTTP clients extensions [Rest Client, Httpyac, Intellj HTTP Client]) or from the command line using the ([Httpyac CLI](https://httpyac.github.io/guide/installation_cli.html) - [HTTP Client CLI](https://www.jetbrains.com/help/idea/http-client-in-product-code-editor.html)).
 
 IDEs integration allows you to send HTTP requests and view the response directly in Code editor without switching to a browser or a separate application.
 
@@ -56,12 +56,12 @@ For Httpyac extension in VS Code, you use different sources of the environment v
 
 ## Create HTTP request test
 
-As you can see in the below image, the HTTP request is composed of these parts:
+As presented by the image below, the HTTP request is composed of these parts:
 
 - [Request line:](https://httpyac.github.io/guide/request.html#request-line) The first line of the request contains the HTTP method, the URL, and the HTTP version.
 - [Headers:](https://httpyac.github.io/guide/request.html#headers) The request headers are used to pass additional information about the request, and about the client itself, to the server.
 - [Body:](https://httpyac.github.io/guide/request.html#request-body) The request body is used to send data to the server.
-- Metadata: The metadata is used to add additional information about the request, like the request name, title, etc.
+- Metadata: Metadata is used to add additional information about the request, such as request name, title, etc.
 - [Response Handling:](https://httpyac.github.io/guide/assert.html) The response handling section is used to write the required logic for response validation and handling.
 
 ![http-request-format](./images/http-files-sample.jpg)
@@ -75,7 +75,7 @@ As you can see in the below image, the HTTP request is composed of these parts:
 
 ## Response handling and validation
 
-The HTTP Client supports a mechanism to manipulate the response and validate it, through exposing the response as an object that can be used to access the response status, headers, and body.
+The HTTP Client supports a mechanism to manipulate the response and validate it, by exposing the response as an object that can be used to access its response status, headers, and body.
 
 In addition to a handy utility functions that can be used to validate the response and manipulate it.
 
@@ -83,7 +83,7 @@ In addition to a handy utility functions that can be used to validate the respon
 
 ## Test Automation 
 
-The HTTP files can be executed from the command line using the [Httpyac CLI](https://httpyac.github.io/guide/installation_cli.html) or [HTTP Client CLI](https://www.jetbrains.com/help/idea/http-client-in-product-code-editor.html) and this allows you to automate the test execution and can be integrated with the CI/CD pipeline.
+The HTTP files can be executed from the command line using the [Httpyac CLI](https://httpyac.github.io/guide/installation_cli.html) or [HTTP Client CLI](https://www.jetbrains.com/help/idea/http-client-in-product-code-editor.html). This allows you to automate the test execution and can be integrated with CI/CD pipelines.
 
 
 ```bash
@@ -97,7 +97,7 @@ httpyac testing/e2e-test/customers.http --all -e local -o response
 
 ![http-request-run](./images/http-files-run-cli.jpg)
 
-The sample repository contains Make commands as shorthand to execute the HTTP files using the Httpyac CLI automatically.
+The sample repository contains `make commands` as shorthand to execute the HTTP files using the Httpyac CLI automatically.
 
 ```bash
 # Install Httpyac CLI
@@ -109,8 +109,8 @@ make e2e-local
 
 ## Summary
 
-In this article, I've demonstrated how to do the end-to-end testing for the API endpoints using HTTP files and Rest Clients. I've used Httpyac extension in VS Code as an HTTP client to write the HTTP requests and execute them. also demonstrated how to use environment variables to define the base URL of the API endpoints and the authentication token.
-In addition to having response handling and validation mechanism which is really handy.
+In this article, we've demonstrated how to conduct end-to-end testing for API endpoints using HTTP files and Rest Clients. We utilized the Httpyac extension in VS Code as an HTTP client for composing and executing HTTP requests. Additionally, we illustrated how to employ environment variables to define the base URL of the API endpoints and the authentication token. 
+We've also highlighted the usefulness of a response handling and validation mechanism.
 
 ## References
 
