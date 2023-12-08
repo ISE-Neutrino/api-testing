@@ -50,7 +50,7 @@ Each IDE or Extension has its own way to define environment variables, but the c
 
 For Httpyac extension in VS Code, you use different sources of the environment variables:
  - System environment variables
- - Json Based environment variables file and you can define multiple environment per file
+ - Json based files and you can define multiple environments per file
 
  ![Environment-variables](./images/http-files-env.jpg)
 
@@ -107,10 +107,9 @@ make e2e-init
 make e2e-local
 ```
 
-## Summary
+## Conclusion
 
-In this article, we've demonstrated how to conduct end-to-end testing for API endpoints using HTTP files and Rest Clients. We utilized the Httpyac extension in VS Code as an HTTP client for composing and executing HTTP requests. Additionally, we illustrated how to employ environment variables to define the base URL of the API endpoints and the authentication token. 
-We've also highlighted the usefulness of a response handling and validation mechanism.
+In this article, we've demonstrated how to perform end-to-end testing for API endpoints using HTTP files and Rest Clients. We utilized the Httpyac extension for VS Code as an HTTP client for composing and executing HTTP requests. Additionally, we illustrated how to employ environment variables to define the base URL of the API endpoints and the authentication token. We've also highlighted a response handling and validation mechanism.
 
 ## References
 
