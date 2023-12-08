@@ -4,7 +4,7 @@
 
 ## Context
 
-During our last engagement with one of financial sector client and after finishing the first iteration of the API endpoints implementation, one of the tasks that we had to do was to test the API endpoints end-to-end to make sure that the APIs were working as expected and allows the developers to demonstrate there work by the end of each sprint. So we did a comparison between different tools for API testing and HTTP files (HTTP/Rest Client) is selected for this purpose.
+During our recent engagement with a financial sector client, and after completing the initial iteration of the API endpoints implementation, an important task was to perform end-to-end testing of the API endpoints to ensure that the APIs are working as intended, and to enable developers to demonstrate their work at the end of each sprint. We compared various tools and chose HTTP files with HTTP/Rest Client for this purpose.
 
 Our selection criteria were:
 
@@ -32,7 +32,7 @@ Let's start by defining what is end-to-end testing and why we need to do it.
 
 End-to-end testing is a methodology used to test whether the flow of an application is performing as designed from start to finish. The purpose of carrying out end-to-end tests is to identify system dependencies and to ensure that the right information is passed between various system components and systems.
 
-I will focus in this article on testing API endpoints end-to-end, so I will not go into details about the end-to-end testing methodology and different strategies that can be used to do it.
+This article will focus on a comprehensive end-to-end testing of the API endpoints, and avoid going into details about the end-to-end testing methodology and different strategies that can be used to do it.
 
 ![e2e-testing](./images/e2e-testing.png)
 
@@ -77,7 +77,7 @@ As presented by the image below, the HTTP request is composed of these parts:
 
 The HTTP Client supports a mechanism to manipulate the response and validate it, by exposing the response as an object that can be used to access its response status, headers, and body.
 
-In addition to a handy utility functions that can be used to validate the response and manipulate it.
+In addition to a handy utility functions that can be used to validate and handle the response, these functions are exposed by an object called `client` and methods examples (client.test, client.assert,client.global.set, etc.)
 
 ![http-request-response](./images/http-files-response-access.jpg)
 
