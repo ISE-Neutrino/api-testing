@@ -4,25 +4,23 @@
 
 ## Context
 
-During our recent engagement with a financial sector client, and after completing the initial iteration of the API endpoints implementation, an important task was to perform end-to-end testing of the API endpoints to ensure that the APIs are working as intended, and to enable developers to demonstrate their work at the end of each sprint. We compared various tools and chose HTTP files with HTTP/Rest Client for this purpose.
+In our recent engagement, after completing the initial iteration of the API endpoints implementation, We needed to test the API endpoints end-to-end to ensure that the APIs functioned  as intended, and to enable developers to demonstrate their work after every sprint. We evaluated different tools and decided to use HTTP files with HTTP/Rest Client for this task.
 
-Our selection criteria were:
+Our selection criteria:
 
-- Learning curve and ease of use
-- IDEs integration (Visual studio, VS Code, IntelliJ)
+- Small learning curve and ease of use
+- IDE integration (Visual studio, VS Code, IntelliJ)
 - CLI availability for Automation and CI/CD integration
-- Integrated to the existing development process (PRs, Code review, source control, etc.)
-- keep the testing process simple and easy to maintain
-- Human readable and easy to understand
-- Features
-    - Support for different HTTP methods and Headers
-    - Authentication support
-    - Environment variables
-    - Response validation and manipulation
+- Compatibility with our inner dev loop (PRs, Code review, source control, etc.)
+- Keep the testing process simple and easy to maintain
+- Readability  
+- Full support for HTTP Specs 
+- Authentication support
+- Environment variables
+- Response validation and handling
 
-I would like to walk you through the steps we took to perform end-to-end testing for the API endpoints in the solution.
-
-In this article, we have developed sample mock Customer API endpoints using Spring Boot. I employ this setup to illustrate the process of conducting end-to-end testing, leveraging [VS Code](https://code.visualstudio.com/) as the integrated development environment (IDE) and  [Httpyac](https://marketplace.visualstudio.com/items?itemName=anweber.vscode-httpyac) as the HTTP client.
+This document walks you through the steps for performing an end-to-end test of the API endpoints in this solution.
+In this context, we have developed mock Customer API endpoints using Spring Boot. We used this setup to illustrate the process of conducting end-to-end testing with [VS Code](https://code.visualstudio.com/) and  [Httpyac](https://marketplace.visualstudio.com/items?itemName=anweber.vscode-httpyac) extension.
 
 Please find all the code and documentation in the repository [here](https://github.com/ISE-Neutrino/api-testing)
 
@@ -109,7 +107,7 @@ make e2e-local
 
 ## Conclusion
 
-In this article, we've demonstrated how to perform end-to-end testing for API endpoints using HTTP files and Rest Clients. We utilized the Httpyac extension for VS Code as an HTTP client for composing and executing HTTP requests. Additionally, we illustrated how to employ environment variables to define the base URL of the API endpoints and the authentication token. We've also highlighted a response handling and validation mechanism.
+This article has shown how to do end-to-end testing of API endpoints using HTTP files and Rest Clients. We used the Httpyac extension for VS Code to write and run HTTP requests. We also showed how to use environment variables to set the base URL and the authentication token for the API endpoints. Moreover, we explained how to handle and validate the responses.
 
 ## References
 
