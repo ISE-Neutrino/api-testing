@@ -1,6 +1,6 @@
 # APIs Testing
 
-This repository demonstrates by example how to automate the APIs End-to-End(e2e) testing using Http files and Rest Client.
+This repository shows how to use Http files and Rest Client to automate the end-to-end (e2e) testing of APIs.
 
 ## Prerequisites
 
