@@ -1,6 +1,6 @@
 # APIs load testing using K6
 
-![load-testing](./images/load-testing.png)
+![load-testing](images/load-testing.png)
 
 ## Context
 
@@ -213,7 +213,7 @@ The summary report of the test script includes:
 
 *The follow image shows the test results for the addCustomer endpoint.*
 
-![load-testing](./images/load-testing-result.png)
+![load-testing](images/load-testing-result.png)
 
 ### K6 Results Metrics
 
