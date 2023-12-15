@@ -25,7 +25,7 @@ _Please find the sample source code and documentation in the repository [here](h
 - How will you run the test?
 - What criteria determine acceptable performance?
 
-**The test goal determines the test type. Consider the following test types, which correspond to different goals load profiles:**
+**The test goal determines the test type:**
 
 - **Smoke test:** Verify the system functions with minimal load.
 - **“Average” load test:** Discover how the system functions with typical traffic.
