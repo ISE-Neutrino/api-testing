@@ -4,9 +4,7 @@
 
 ## Context
 
-After completing the implementation of the API endpoints, we need to measure the performance, identity potential bottlenecks, and ensure that the system meets the SLOs (Service Level Objectives) requirements. We evaluated different tools and decided to use [K6](https://k6.io/) for this task.
-
-This post walks you through the steps for performing API endpoints load testing using K6 framework. In this context, we have developed mock Customer API service using Spring Boot. this setup used to illustrate the process of conducting load-testing with [VS Code](https://code.visualstudio.com/) and  [K6](https://grafana.com/docs/k6/latest/).
+After completing the initial phases of the API endpoints implementation, we need to plan how to test the performance, identify potential bottlenecks, and ensure that the system meets the SLOs (Service Level Objectives) requirements. Load testing is used for this purpose, on a recent engagement we evaluated different tools and decided to use [K6](https://k6.io/) for load testing, this post will go through the load testing concept and how to use the K6 framework to perform load testing for API endpoints. In this context, we have developed mock Customer API service using Spring Boot. this setup used to illustrate the process of conducting load-testing with [VS Code](https://code.visualstudio.com/) and [K6](https://grafana.com/docs/k6/latest/).
 
 _Please find the sample source code and documentation in the repository [here](https://github.com/ISE-Neutrino/api-testing)._
 
