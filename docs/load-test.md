@@ -38,8 +38,8 @@ _Please find the sample source code and documentation in the repository [here](h
 
 - **Script the test:** Write user flows, parameterize test data, and group URLs.
 - **Assert performance and correctness:** Use Checks to assert system responses and use Thresholds to ensure that the system performs within your SLOs.
-- **Model and generate load:** Model the workload that's appropriate to your test goals. Make sure the load generators are located where they should be.
-- **Iterate over your test suite:** Over time, you'll be able to reuse script logic (e.g., a user log-in flow or a throughput configuration). You'll also be able to run tests with a wider scope or as a part of your automated testing suite.
+- **Model and generate load:** Model the workload that's appropriate to your test goals.
+- **Iterate over your test suite:** Over time, you'll be able to reuse script logic and run tests with a wider scope or as a part of your automated testing suite.
 
 ## K6
 
