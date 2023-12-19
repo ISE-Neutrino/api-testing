@@ -67,6 +67,7 @@ In this article, we will install K6 on Linux, for more information about install
 
 ```bash
 # Install K6 on Linux
+# https://grafana.com/docs/k6/latest/get-started/installation/#linux
 sudo gpg -k
 sudo gpg --no-default-keyring --keyring /usr/share/keyrings/k6-archive-keyring.gpg --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys C5AD17C747E3415A3642D57D77C6C491D6AC1D69
 echo "deb [signed-by=/usr/share/keyrings/k6-archive-keyring.gpg] https://dl.k6.io/deb stable main" | sudo tee /etc/apt/sources.list.d/k6.list
@@ -231,7 +232,7 @@ I found K6 to be a very powerful tool for load testing, it is easy to use and ha
 
 ## References
 
-- [ISE performance testing](https://microsoft.github.io/code-with-engineering-playbook/automated-testing/e2e-testing/)
+- [ISE performance testing](https://microsoft.github.io/code-with-engineering-playbook/automated-testing/performance-testing/)
 - [API Load Testing](https://k6.io/docs/testing-guides/api-load-testing)
 - [Load test types](https://k6.io/docs/test-types/load-test-types)
 - [Automated performance testing](https://k6.io/docs/testing-guides/automated-performance-testing/)
