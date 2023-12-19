@@ -6,7 +6,7 @@
 
 After completing the initial phases of the API endpoints implementation, we need to plan how to test the performance, identify potential bottlenecks, and ensure that the system meets the SLOs (Service Level Objectives) requirements. Load testing is used for this purpose, on a recent engagement we evaluated different tools and decided to use [K6](https://k6.io/) for load testing, this post will go through the load testing concept and how to use the K6 framework to perform load testing for API endpoints. In this context, we have developed mock Customer API service using Spring Boot. this setup used to illustrate the process of conducting load-testing with [VS Code](https://code.visualstudio.com/) and [K6](https://grafana.com/docs/k6/latest/).
 
-_Please find the sample source code and documentation in the repository [here](https://github.com/ISE-Neutrino/api-testing)._
+_You can find the sample source code and documentation in the following repository [here](https://github.com/ISE-Neutrino/api-testing)._
 
 ## Load testing
 
@@ -23,7 +23,7 @@ _Please find the sample source code and documentation in the repository [here](h
 - How will you run the test?
 - What criteria determine acceptable performance?
 
-**The test goal determines the test type:**
+**The test goals determine the test type:**
 
 - **Smoke test:** Verify the system functions with minimal load.
 - **“Average” load test:** Discover how the system functions with typical traffic.
@@ -43,20 +43,22 @@ _Please find the sample source code and documentation in the repository [here](h
 
 **K6** is an open-source load testing tool that makes performance testing easy and productive for engineering teams, Which is Developer and Source control friendly, has a small learning curve(Javascript). You can run k6 locally, in the cloud, or as part of your CI/CD pipeline.
 
-- **Test types:** Primarily designed for support performance testing and it's subtypes (load, stress, spike, etc.)
-- **Target Users:** It is well-suited for developers and performance engineers who want a user-friendly, modern tool for performance testing.
-- **Technology Stack:** It uses JavaScript and ES6 for scripting, making it accessible to developers familiar with these technologies.
-- **Learning Curve:** k6 has a relatively low learning curve, especially for developers with JavaScript experience.
-- **Scalability:** k6 is designed for horizontal scaling, allowing you to distribute load tests across multiple machines easily.
-- **Support:** k6 offers community support and a commercial version (k6 Cloud) with additional features and support options.
+**Key Features at a Glance:**
+
+- **Test types:** Primarily designed for supporting performance testing types such as load, stress, spike, and more.
+- **Target Users:** Well-suited for developers and performance engineers seeking a user-friendly, modern tool for effective performance testing.
+- **Technology Stack:** Uses JavaScript and ES6 for scripting, making it accessible to developers familiar with these technologies.
+- **Learning Curve:** With a relatively low learning curve, K6 is particularly friendly to developers with JavaScript experience.
+- **Scalability:** Designed for horizontal scaling, allowing you to easily distribute load tests across multiple machines.
+- **Support:** Offers community support and a commercial version (k6 Cloud) with additional features and support options.
 - **Test Plans Source Control:** Supports source control and can be integrated with version control systems like Git for managing test scripts.
-- **Metrics:** k6 provides essential performance metrics out of the box, including response times, requests per second, and errors.
-- **Reporting :** Provides basic reporting, and you can enhance reporting capabilities with plugins and integrations.
-- **Thresholds:** allowing you to set performance thresholds based on your SLOs requirements.
-- **Automation CLI:** k6 offers a CLI for automation, making it easy to run tests from the command line or integrate with automation scripts.
-- **Cloud Native:** k6 is container-friendly, making it suitable for running in cloud environments and container orchestration platforms.
-- **Supported Protocols:** k6 supports a range of protocols, including HTTP, WebSocket, gRPC, and more, through community-developed extensions.
-- **Observability Integration:** k6 supports pushing test results to Observability systems [AppInsights, Datadog, Grafana, more].
+- **Metrics:** Provides essential performance metrics out of the box, including response times, requests per second, and errors.
+- **Reporting :** Provides basic reporting capabilities, which can be further enhanced with plugins and integrations.
+- **Thresholds:** Enables setting of performance thresholds based on your SLO requirements.
+- **Automation CLI:** Comes with a CLI for automation, simplifying the process of running tests from the command line or integrating with automation scripts.
+- **Cloud Native:** Container-friendly, making it suitable for running in cloud environments and container orchestration platforms.
+- **Supported Protocols:** Offers support to a range of protocols, including HTTP, WebSocket, gRPC, and more, through community-developed extensions.
+- **Observability Integration:** Facilitates the integration of test results with Observability systems such as AppInsights, Datadog, Grafana, and more.
 - **Cost:** Offers an open-source version and a commercial version (k6 Cloud) with additional features and support, priced based on usage.
 
 ## K6 Installation
@@ -87,20 +89,20 @@ Each test scenario consists of three sections:
 
 ### 1. Test Options
 
-The test options section defines test-run behavior, it includes the following:
+The `Test Options` section defines test-run behavior, including the following:
 
-- **Tags:** defines the tags to be added to the test metrics and results, which can be used to filter the results
-- **Thresholds:** defines the performance Thresholds, used to ensure that the API performs within your SLOs
-- **Scenarios:** defines the test scenarios, each scenario defines the function to be called with the test options, such as the:
-  - Executor type: Constant or Ramping Arrival Rate, Constant or Ramping VUs (virtual users), and [more](https://k6.io/docs/using-k6/scenarios/executors/)
-  - VUs: The number of virtual users or worker
+- **Tags:** Defines the tags to be added to the test metrics and results, which can later be used to filter results;
+- **Thresholds:** Defines the performance Thresholds, used to ensure that the API performs within your SLOs;
+- **Scenarios:** Defines the test scenarios, each scenario defining the function to be called with the test options, such as:
+  - Executor type: Constant or Ramping Arrival Rate, Constant or Ramping VUs (virtual users), and [more](https://k6.io/docs/using-k6/scenarios/executors/);
+  - VUs: The number of virtual users or workers;
   - Duration of the test
   - Rate: The number of iterations per time unit
   - Time unit: The time unit for the rate
 
 *More information about the test options can be found [here](https://k6.io/docs/using-k6/k6-options/reference/)*.
 
-Following is an example of the test options section for the addCustomer endpoint test case.
+Following is an example of the Test Options section for the addCustomer endpoint test case.
 
 ```javascript
 /**
@@ -134,7 +136,7 @@ export const options = {
 
 ### 2. Setup
 
-The setup section is optional and is used to set up the test environment, like acquiring the authentication token and preparing the test initializations data.
+The `Setup` section is optional and is used to set up the test environment, such as acquiring the authentication token and preparing the test initialization data.
 
 ```javascript
 
@@ -152,11 +154,11 @@ export function setup() {
 
 ### 3. Test Scenario
 
-This section defines the actual testing logic, could be one or more test scenarios and each scenario could test single endpoint or a complete flow, It uses the K6 modules like
+This section defines the actual testing logic, which could be one or more test scenarios and each scenario could test a single endpoint or a complete flow, It uses the K6 modules such as:
 
-- HTTP model to send HTTP requests to the API endpoints
-- Check and assertions modules to validate the response
-- More modules can be found [here](https://k6.io/docs/using-k6/)
+- HTTP model to send HTTP requests to the API endpoints;
+- Check and assertions modules to validate the response;
+- More modules can be found [here](https://k6.io/docs/using-k6/).
 
 ```javascript
 /**
@@ -206,8 +208,8 @@ When the test is complete, k6 prints a top-level summary of the aggregated resul
 
 The summary report of the test script includes:
 
-- Summary statistics about each built-in and custom metric (e.g. mean, median, p95, etc).
-- A list of the test's groups and scenarios
+- Summary statistics about each built-in and custom metric (e.g. mean, median, p95, etc);
+- A list of the test's groups and scenarios;
 - The pass/fail results of the test's thresholds and checks.
 
 *The follow image shows the test results for the addCustomer endpoint.*
@@ -216,13 +218,13 @@ The summary report of the test script includes:
 
 ### K6 Results Metrics
 
-Every k6 test emits [built-in metrics](https://k6.io/docs/using-k6/metrics/reference/). I will spotlight the most important HTTP metrics that can help to measure the performance of the system and start to setup thresholds against the expected SLOs.
+Every k6 test emits [built-in metrics](https://k6.io/docs/using-k6/metrics/reference/). I will spotlight the most important HTTP metrics that can help measure the performance of the system and start to setup thresholds against the expected SLOs.
 
-- **http_reqs:** How many total HTTP requests k6 generated, (system throughput)
-- **http_req_duration:** Total time for the request to be completed. It's equal to http_req_sending + http_req_waiting + http_req_receiving (system latency)
-- **http_req_failed:** The number of failed HTTP requests (system availability)
+- **http_reqs:** How many total HTTP requests k6 generated, (system throughput);
+- **http_req_duration:** Total time for the request to be completed. It's equal to http_req_sending + http_req_waiting + http_req_receiving (system latency);
+- **http_req_failed:** The number of failed HTTP requests (system availability).
 
-*More information about the metrics can be found [here](https://k6.io/docs/using-k6/metrics/reference/).*
+*More information about metrics can be found [here](https://k6.io/docs/using-k6/metrics/reference/).*
 
 ## Conclusion
 
