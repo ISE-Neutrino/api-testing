@@ -6,7 +6,7 @@
 
 After completing the initial phases of the API endpoints implementation, we need to plan how to test the performance, identify potential bottlenecks, and ensure that the system meets the Service Level Objectives (SLOs) requirements. Load testing is used for this purpose. In a recent project, we evaluated different tools and decided to use [K6](https://k6.io/) to conduct load testing, this post will go through the load testing concepts and shows how to use the K6 tool to perform load testing for API endpoints.
 
-In this context, we have developed mock Customer API service using Spring Boot. this setup used to illustrate the process of conducting load-testing with [VS Code](https://code.visualstudio.com/) and [K6](https://k6.io/) and You can find the sample source code and documentation in this repository [here](https://github.com/ISE-Neutrino/api-testing).
+In this context, we have developed mock Customer API service using Spring Boot. this setup used to illustrate the process of conducting load-testing with [VS Code](https://code.visualstudio.com/) and [K6](https://k6.io/) and You can find the sample source code and documentation in this [repository](https://github.com/ISE-Neutrino/api-testing).
 
 ## Load testing
 
@@ -23,7 +23,7 @@ In this context, we have developed mock Customer API service using Spring Boot. 
 - How will you run the test?
 - What criteria determine acceptable performance?
 
-**The test goals determine the test type:**
+**The test goal determines the test type:**
 
 - **Smoke test:** Verify the system functions with minimal load.
 - **“Average” load test:** Discover how the system functions with typical traffic.
@@ -83,19 +83,19 @@ k6's test suite are written in JavaScript, making it easy to get started with pe
 
 Each test scenario consists of three sections:
 
-- Options
-- Setup
+- Options (Configuration)
+- Setup (Initializations)
 - Test Cases
 
 ### 1. Test Options
 
 The `Test Options` section defines test-run behavior, including the following:
 
-- **Tags:** Defines the tags to be added to the test metrics and results, which can later be used to filter results;
-- **Thresholds:** Defines the performance Thresholds, used to ensure that the API performs within your SLOs;
+- **Tags:** Defines the tags to be added to the test metrics and results, which can later be used to filter results
+- **Thresholds:** Defines the performance Thresholds, used to ensure that the API performs within your SLOs
 - **Scenarios:** Defines the test scenarios, each scenario defining the function to be called with the test options, such as:
   - Executor type: Constant or Ramping Arrival Rate, Constant or Ramping VUs (virtual users), and [more](https://k6.io/docs/using-k6/scenarios/executors/);
-  - VUs: The number of virtual users or workers;
+  - VUs: The number of virtual users or workers
   - Duration of the test
   - Rate: The number of iterations per time unit
   - Time unit: The time unit for the rate
@@ -208,9 +208,9 @@ When the test is complete, k6 prints a top-level summary of the aggregated resul
 
 The summary report of the test script includes:
 
-- Summary statistics about each built-in and custom metric (e.g. mean, median, p95, etc);
-- A list of the test's groups and scenarios;
-- The pass/fail results of the test's thresholds and checks.
+- Summary statistics about each built-in and custom metric (e.g. mean, median, p95, etc)
+- A list of the test's groups and scenarios
+- The pass/fail results of the test's thresholds and checks
 
 *The follow image shows the test results for the addCustomer endpoint.*
 
