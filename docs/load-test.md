@@ -14,7 +14,7 @@ _You can find the sample source code and documentation in the following reposito
 
 **Why we need it:**
 
-- Validate reliability under expected traffic
+- Validate reliability under expected traffic;
 - Discover bottlenecks and system limits under unusual traffic.
 
 **When you design your API tests, first you need to answer the following questions:**
@@ -41,7 +41,7 @@ _You can find the sample source code and documentation in the following reposito
 
 ## K6
 
-**K6** is an open-source load testing tool that makes performance testing easy and productive for engineering teams, Which is Developer and Source control friendly, has a small learning curve(Javascript). You can run k6 locally, in the cloud, or as part of your CI/CD pipeline.
+**K6** is an open-source load testing tool that makes performance testing easy and productive for engineering teams. It is Developer and Source control friendly and has a small learning curve(Javascript). You can run k6 locally, in the cloud, or as part of your CI/CD pipeline.
 
 **Key Features at a Glance:**
 
