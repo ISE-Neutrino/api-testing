@@ -228,9 +228,9 @@ Every k6 test emits [built-in metrics](https://k6.io/docs/using-k6/metrics/refer
 
 ## Conclusion
 
-This post has demonstrated how to use the K6 framework to perform load testing for API endpoints. and went through the selection criteria for choosing K6 as a load testing tool. also showed how to install K6 on Linux and how to easily build a load test case using JavaScript, in addition to how to execute the test case using the K6 CLI and finally showed the test results and the different K6 metrics that can be used to measure the performance of the system.
+This post demonstrated how to use the K6 framework to perform load testing for API endpoints. It covered the selection criteria for choosing K6 as a load-testing tool. Furthermore, it showed how to install K6 on Linux and how to easily build a load test case using JavaScript, in addition to how to execute the test case using the K6 CLI. Finally, it showed the test results and the different K6 metrics that can be used to measure the performance of the system.
 
-I found K6 to be a very powerful tool for load testing, it is easy to use and has a lot of features that can be used to build a comprehensive load test suite and can be seamlessly integrated into development loop and CI/CD pipelines.
+K6 has proven to be a very powerful tool for load testing. It is easy to use and has a lot of features that can be used to build a comprehensive load test suite and can be seamlessly integrated into the development loop and CI/CD pipelines.
 
 ## References
 
