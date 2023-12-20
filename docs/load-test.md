@@ -6,7 +6,7 @@
 
 After completing the initial phases of the API endpoints implementation, we need to plan how to test the performance, identify potential bottlenecks, and ensure that the system meets the Service Level Objectives (SLOs) requirements. Load testing is used for this purpose. In a recent project, we evaluated different tools and decided to use [K6](https://k6.io/) to conduct load testing, this post will go through the load testing concepts and shows how to use the K6 tool to perform load testing for API endpoints.
 
-In this context, we have developed mock Customer API service using Spring Boot. this setup used to illustrate the process of conducting load-testing with [VS Code](https://code.visualstudio.com/) and [K6](https://k6.io/) and You can find the sample source code and documentation in this [repository](https://github.com/ISE-Neutrino/api-testing).
+In this context, we have developed a mock Customer API service using Spring Boot. This setup is used to illustrate the process of conducting load-testing with [VS Code](https://code.visualstudio.com/) and [K6](https://k6.io/). You can find the sample source code and documentation in this [repository](https://github.com/ISE-Neutrino/api-testing).
 
 ## Load testing
 
@@ -14,7 +14,7 @@ In this context, we have developed mock Customer API service using Spring Boot. 
 
 **Why we need it:**
 
-- Validate reliability under expected traffic;
+- Validate reliability under expected traffic.
 - Discover bottlenecks and system limits under unusual traffic.
 
 **When you design your API tests, first you need to answer the following questions:**
@@ -26,7 +26,7 @@ In this context, we have developed mock Customer API service using Spring Boot. 
 **The test goal determines the test type:**
 
 - **Smoke test:** Verify the system functions with minimal load.
-- **“Average” load test:** Discover how the system functions with typical traffic.
+- **Average load test:** Discover how the system functions with typical traffic.
 - **Stress test:** Discover how the system functions with the load of peak traffic.
 - **Spike test:** Discover how the system functions with sudden and massive increases in traffic.
 - **Breakpoint test:** Progressively ramp traffic to discover system breaking points.
@@ -34,14 +34,14 @@ In this context, we have developed mock Customer API service using Spring Boot. 
 
 **Testing strategy likely follow something like this procedure:**
 
-- **Script the test:** Write user flows, parameterize test data, and group URLs.
+- **Test Script:** Write user flows, parameterize test data, and group URLs.
 - **Assert performance and correctness:** Use Checks to assert system responses and use Thresholds to ensure that the system performs within your SLOs.
 - **Model and generate load:** Model the workload that's appropriate to your test goals.
 - **Iterate over your test suite:** Over time, you'll be able to reuse script logic and run tests with a wider scope or as a part of your automated testing suite.
 
 ## K6
 
-**K6** is an open-source load testing tool that makes performance testing easy and productive for engineering teams. It is Developer and Source control friendly and has a small learning curve(Javascript). You can run k6 locally, in the cloud, or as part of your CI/CD pipeline.
+**K6** is an open-source load testing tool that simplifies performance testing for engineering teams, making it easy and productive. It is developer and source-control friendly and has a small learning curve (JavaScript). You can run k6 locally, in the cloud, or as part of your CI/CD pipeline.
 
 **Key Features at a Glance:**
 
