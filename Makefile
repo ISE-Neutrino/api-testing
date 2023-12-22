@@ -42,3 +42,11 @@ e2e-dev:## 🏃 Run e2e-test on the dev environment
 	@echo -e "----\e[34mStart $@\e[0m----" || true
 	@httpyac testing/e2e-test/*.http --all -e development -o short 
 	@echo -e "----\e[34mCompleted\e[0m----"
+
+load-test: ## ⌛️ Load Test 
+	@echo -e "----\e[34mStart $@\e[0m----" || true 
+	@cd testing/load-test && k6 run \
+		-e K6_ENV=local \
+		-e CUSTOMERS_API_URL=${CUSTOMERS_API_URL} \
+		customers-service.js
+	@echo -e "----\e[34mCompleted\e[0m----"

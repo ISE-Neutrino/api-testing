@@ -1,8 +1,8 @@
 package com.customers.services;
 
 import com.customers.models.Customer;
-import java.util.HashMap;
 import java.util.UUID;
+import java.util.concurrent.ConcurrentHashMap;
 
 import org.springframework.stereotype.Service;
 
@@ -11,7 +11,11 @@ import java.util.Collection;
 @Service
 public class CustomersService {
 
-    static HashMap<String, Customer> customers = new HashMap<String, Customer>();
+    static ConcurrentHashMap<String, Customer> customers = new  ConcurrentHashMap<String, Customer>();
+
+    public CustomersService() {
+        seed();
+    }
 
     /**
      * List customers
@@ -60,5 +64,16 @@ public class CustomersService {
      */
     public String deleteCustomer(String id) {
         return customers.remove(id).id;
+    }
+
+    /**
+     * Seed data
+     */
+    private void seed() {
+       Customer customer = new Customer();
+        customer.id = "c9cd67b8-7738-4736-b8c6-f35bb0154d09";
+        customer.name = "Customer 1";
+        customer.email = "customer@email.com";
+        customers.put(customer.id, customer);
     }
 }

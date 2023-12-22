@@ -51,7 +51,9 @@
 				"streetsidesoftware.code-spell-checker",
 				"eamodio.gitlens",
 				"bierner.markdown-mermaid",
-				"anweber.vscode-httpyac"
+				"anweber.vscode-httpyac",
+				"k6.k6",
+				"davidanson.vscode-markdownlint"
 				
 			]
 		}
