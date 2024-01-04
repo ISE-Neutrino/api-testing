@@ -3,24 +3,34 @@
 {
 	"name": "APIs Testing",
 	// Docker Image
-	"image": "mcr.microsoft.com/devcontainers/java:17-bullseye",
+
+	// The name of an image in a container registry (DockerHub, GitHub Container Registry, Azure Container Registry) 
+	//that devcontainer.json supporting services / tools should use to create the dev container
+	//"image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+	"build": {
+		"dockerfile": "Dockerfile",
+		"context": ".",
+		"args": { "VARIANT": "ubuntu" }
+	},
+
+	 // An array of Docker CLI arguments that should be used when running the container
 	//"runArgs": ["--env-file",".env"],
+
+
 	"mounts": [],
+
 	// Available Features: https://containers.dev/features
-	"features": {
+	"features": { 
 		"ghcr.io/devcontainers/features/java:1": {
 			"version": "17",
 			"installMaven": "true",
 			"installGradle": "false"
 		},
 		"ghcr.io/devcontainers/features/sshd:1": {}, // Adds a SSH server into dev-container
-		"ghcr.io/devcontainers/features/node:1":{}, // intall nodejs
+		"ghcr.io/devcontainers/features/node:1":{}, // install nodejs
 		"ghcr.io/devcontainers-contrib/features/apt-get-packages:1": {
 			"packages": ["xdg-utils"] // allows integration with host browser for Power-app auth 
 		}
-		//"ghcr.io/devcontainers/features/azure-cli:1":{}, // Install Azure CLI
-		//"ghcr.io/devcontainers/features/docker-in-docker:2":{}, // Create child containers inside dev-container
-		//"ghcr.io/devcontainers/features/kubectl-helm-minikube:1": {}, // Installs latest version of kubectl, Helm, and minikube CLI
 	},
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
@@ -30,15 +40,13 @@
 	// Use 'postCreateCommand' to run commands after the container is created.
 	"postCreateCommand": "bash .devcontainer/postCreateCommand.sh",
 
-	// Description for extension: 
-	//	https://marketplace.visualstudio.com/items?itemName={extension-name}
+	// Description for extension: https://marketplace.visualstudio.com/items?itemName={extension-name}
 	"customizations": {
 		"vscode": {
 			"extensions":[
 				"ms-azuretools.azure-dev",
 				"ms-azuretools.vscode-docker",
                 "ms-vscode.makefile-tools",
-				"ms-azuretools.vscode-docker",
 				"ms-kubernetes-tools.vscode-kubernetes-tools",
 				"ms-kubernetes-tools.vscode-aks-tools",
 				"vscjava.vscode-java-pack",
@@ -54,11 +62,10 @@
 				"anweber.vscode-httpyac",
 				"k6.k6",
 				"davidanson.vscode-markdownlint"
-				
 			]
 		}
 	},
 
-	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
-	"remoteUser": "vscode"
+	// uncomment to connect as non-root user. More info: https://aka.ms/dev-containers-non-root.
+	// "remoteUser": "vscode"
 }
