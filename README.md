@@ -13,6 +13,7 @@ This repository shows how to use Http files and Rest Client to automate the end-
 ## Documentation
 
 - [E2E Testing using Http files and Rest Client](docs/e2e-test.md)
+- [Load testing using K6](docs/load-test.md)
 
 ## Running
 
