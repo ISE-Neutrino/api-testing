@@ -50,3 +50,13 @@ load-test: ## ⌛️ Load Test
 		-e CUSTOMERS_API_URL=${CUSTOMERS_API_URL} \
 		customers-service.js
 	@echo -e "----\e[34mCompleted\e[0m----"
+
+load-test-dashboard: ## ⌛️ Load Test with result dashboard
+	@echo -e "----\e[34mStart $@\e[0m----" || true 
+	@docker pull ghcr.io/grafana/xk6-dashboard
+	@docker run --rm -p 5665:5665 -v /workspaces/api-testing/testing/load-test:/src ghcr.io/grafana/xk6-dashboard:0.6.1 run \
+	    --out 'dashboard=period=2s' \
+		-e K6_ENV=local \
+		-e CUSTOMERS_API_URL=${CUSTOMERS_API_URL} \
+		/src/customers-service.js
+	@echo -e "----\e[34mCompleted\e[0m----"
