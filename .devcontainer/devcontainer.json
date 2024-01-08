@@ -30,7 +30,8 @@
 		"ghcr.io/devcontainers/features/node:1":{}, // install nodejs
 		"ghcr.io/devcontainers-contrib/features/apt-get-packages:1": {
 			"packages": ["xdg-utils"] // allows integration with host browser for Power-app auth 
-		}
+		},
+		"ghcr.io/devcontainers/features/docker-in-docker:2":{} // Create child containers inside dev-container
 	},
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.

@@ -17,16 +17,19 @@ This repository shows how to use Http files and Rest Client to automate the end-
 
 ## Running
 
-Before running the application, make sure you have 
+Before running the application, make sure you have:
+
 - Installed the Pre-requisites mentioned above.
 - Created the environment file `.env` under root folder based on the template file [.env.template](.env.template).
 - the environment file [http-client.env.json](e2e-test/http-client.env.json) under `e2e-test` folder is up to date.
 
 To build the service source code and run unit-tests, use:
--  `make build` or `mvn clean install`
+
+- `make build` or `mvn clean install`
 
 To run the service in development mode, use:
-- `make run` or `mvn spring-boot:run` 
+
+- `make run` or `mvn spring-boot:run`
 
  The following is a list of make commands should be run from root folder.
 
@@ -37,13 +40,14 @@ run                    🏃 Run the application
 e2e-init               🔨 Initialize e2e test environment by installing httpyac CLI
 e2e-local              💻 Run e2e-test on your local environment
 e2e-dev                💻 Run e2e-test on Backbase-msft-dev environment
+load-test              🪓 Load Test
+load-test-dashboard    🌄 Load Test with visualizing the results in xk6 dashboard
 ```
+
 ## Run e2e test
 
-To run e2e test, you need to 
+To run e2e test, you need to:
 
 - Install [httpyac] CLI tool by running `make e2e-init` or `npm install -g httpyac`
 - Run the API service in dev mode by running `make run` or `mvn spring-boot:run`
 - Run the e2e test by running `make e2e-local` or `httpyac testing/e2e-test/*.http --all -e local -o response`
-
-

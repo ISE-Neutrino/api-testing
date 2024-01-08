@@ -1,6 +1,6 @@
 # Development Containers
 
-![dev-container`](https://containers.dev/img/dev-container-stages.png)
+![`dev-container`](https://containers.dev/img/dev-container-stages.png)
 
 ## Context
 
@@ -184,7 +184,14 @@ The environment variables are critical part of the development environment, it c
 }
 ```
 
-### 6. More and beyond
+### 6. Running the dev container
+
+After creating the `devcontainer.json` file, and setting up all the configurations required by your environment , you can run the dev container using the following:
+
+- Open the command palette `Ctrl+Shift+P`
+- Select `Dev Containers: Reopen in Container`
+
+### 7. More and beyond
 
 More documentation and examples can be found [here](https://containers.dev/implementors/json_reference/), In addition, you can find a very helpful [`Dev Containers How To`](https://www.youtube.com/playlist?list=PLj6YeMhvp2S6GjVyDHTPp8tLOR0xLGLYb) series on VS code team youtube channel.
 
@@ -194,10 +201,11 @@ Also, the dev container can improve the outer development loop by integrating it
 
 In this post we explored the concept of development containers and how it can help us to solve the challenges we face when setting up our development environment or onboarding a new team member. We also explored how to create a dev container using VS Code.
 
-## Resources
+## References
 
 - [Dev Containers Specification](https://containers.dev/)
 - [Dev Container Repository](https://github.com/devcontainers)
+- [Dev Container Templates](https://containers.dev/templates)
 - [Visual Studio Code Dev Containers](https://code.visualstudio.com/docs/devcontainers/containers)
 - [IntelliJ Dev Containers](https://www.jetbrains.com/help/idea/using-docker-as-a-remote-interpreter.html)
 - [ISE Dev Containers: Getting Started](https://microsoft.github.io/code-with-engineering-playbook/developer-experience/devcontainers/)
