@@ -47,7 +47,7 @@ load-test: ## ⌛️ Load Test
 	@echo -e "----\e[34mStart $@\e[0m----" || true 
 	@cd testing/load-test && k6 run \
 		-e K6_ENV=local \
-		-e CUSTOMERS_API_URL=${CUSTOMERS_API_URL} \
+		-e CUSTOMERS_API_URL=http://localhost:8000/customers \
 		customers-service.js
 	@echo -e "----\e[34mCompleted\e[0m----"
 
@@ -57,6 +57,6 @@ load-test-dashboard: ## ⌛️ Load Test with visualizing the results in xk6 das
 	@docker run --rm -p 5665:5665 -v /workspaces/api-testing/testing/load-test:/src ghcr.io/grafana/xk6-dashboard:0.6.1 run \
 	    --out 'dashboard=period=2s' \
 		-e K6_ENV=local \
-		-e CUSTOMERS_API_URL=${CUSTOMERS_API_URL} \
+		-e CUSTOMERS_API_URL=http://host.docker.internal:8000/customers \
 		/src/customers-service.js
 	@echo -e "----\e[34mCompleted\e[0m----"
