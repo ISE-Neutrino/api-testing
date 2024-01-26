@@ -36,7 +36,7 @@
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// SSH port:2222 
-	"forwardPorts": [2222],
+	"forwardPorts": [2222, 8000],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
 	"postCreateCommand": "bash .devcontainer/postCreateCommand.sh",
