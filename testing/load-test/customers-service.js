@@ -14,46 +14,44 @@ export const options = {
     thresholds: {
         // addCustomer thresholds
         'http_req_failed{test_type:addCustomer}': ['rate<0.01'], // http errors should be less than 1% > System availability
-        'http_req_duration{test_type:addCustomer}': ['p(95)<200'], // 95% of requests should be below 400ms > System latency
+        'http_req_duration{test_type:addCustomer}': ['p(95)<250'], // 95% of requests should be below 250ms > System latency
 
         // updateCustomer thresholds
         'http_req_failed{test_type:updateCustomer}': ['rate<0.01'],
-        'http_req_duration{test_type:updateCustomer}': ['p(95)<200'],
+        'http_req_duration{test_type:updateCustomer}': ['p(95)<250'],
 
         // listCustomers thresholds
         'http_req_failed{test_type:listCustomers}': ['rate<0.01'],
-        'http_req_duration{test_type:listCustomers}': ['p(95)<200'],
+        'http_req_duration{test_type:listCustomers}': ['p(95)<350'],
     },
     scenarios: {
 
         // Load testing using K6 constant-rate scenario
         addCustomer_constant: {
             executor: 'constant-arrival-rate',
-            rate: 10000,
-            timeUnit: '1m', // iterations will be per minute
-            duration: '1m', // total duration of test
-            preAllocatedVUs: 2, // the size of the VU (i.e. worker) pool for this scenario > represents crs and retail-bank instances
-            maxVUs: 50, // if the preAllocatedVUs are not enough, we can initialize more
+            duration: '1m', // How long the test lasts
+            rate: 1000, // How many iterations per timeUnit
+            timeUnit: '1s', // `rate=1000` iterations will be per minute
+            preAllocatedVUs: 50, // the size of the VU (i.e. worker) pool for this scenario > represents crs and retail-bank instances
+            maxVUs: 100, // if the preAllocatedVUs are not enough, we can initialize more
             tags: { test_type: 'addCustomer' }, // different extra metric tags for this scenario
             exec: 'addCustomer',// Test scenario function to call
         },
         updateCustomer_constant: {
-          executor: 'constant-arrival-rate',
-          rate: 1000,
-          timeUnit: '1m', // iterations will be per minute
-          duration: '1m', // total duration of test
-          preAllocatedVUs: 2, // the size of the VU (i.e. worker) pool for this scenario > represents crs and retail-bank instances
-          maxVUs: 50, // if the preAllocatedVUs are not enough, we can initialize more
-          tags: { test_type: 'updateCustomer' }, // different extra metric tags for this scenario
-          exec: 'updateCustomer', // Test scenario function to call
+            executor: 'constant-arrival-rate',
+            duration: '1m', // How long the test lasts
+            rate: 1000, // How many iterations per timeUnit
+            timeUnit: '1s', // `rate=1000` iterations will be per second
+            preAllocatedVUs: 50, // the size of the VU (i.e. worker) pool for this scenario
+            maxVUs: 100, // if the preAllocatedVUs are not enough, we can initialize more
+            tags: { test_type: 'updateCustomer' }, // different extra metric tags for this scenario
+            exec: 'updateCustomer', // Test scenario function to call
         },
         listCustomers_constant: {
-            executor: 'constant-arrival-rate',
-            rate: 10000,
-            timeUnit: '1m', // 90 iterations per minute, i.e. 1.5 RPS
-            duration: '1m', // total duration of test
-            preAllocatedVUs: 2, // the size of the VU (i.e. worker) pool for this scenario> represents the core-bank instances
-            maxVUs: 50, // if the preAllocatedVUs are not enough, we can initialize more
+            executor: 'per-vu-iterations',
+            vus: 10,
+            iterations: 1000,
+            maxDuration: '30s',
             tags: { test_type: 'listCustomers' }, // different extra metric tags for this scenario
             exec: 'listCustomers', // Test scenario function to call
         }
